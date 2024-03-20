@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: air-traffic-control-app
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, liveness-state, readiness-state, prometheus
+  endpoint:
+    health:
+      probes:
+        enabled: true
+  health:
+    liveness-state:
+      enabled: true
+    readiness-state:
+      enabled: true
+  metrics:
+    tags:
+      application: ${spring.application.name}
+server:
+  shutdown: graceful
+
+app:
+  air-control:
+    new-flight:
+      expectation-time-delay: 150000
+      schedule-rate: 100000
+      schedule-initial-delay: 10000
+    actual-arrival-time:
+      schedule-rate: 10000
+      schedule-initial-delay: 10000
+  client-protocol: http
+  plane-client:
+    url: localhost
+    port: 9000
+  airliner-client:
+    url: localhost
+    port: 9002
+  arrival-client:
+    url: localhost
+    port: 9010
