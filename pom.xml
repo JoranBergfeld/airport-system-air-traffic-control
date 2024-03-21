@@ -148,7 +148,7 @@
                 <configuration>
                     <jvmArguments>-Dspring.application.admin.enabled=true</jvmArguments>
                     <image>
-                        <name>ghcr.io/joranbergfeld/airport-system-gate/${project.artifactId}</name>
+                        <name>ghcr.io/joranbergfeld/airport-system-air-traffic-control/${project.artifactId}</name>
                         <publish>true</publish>
                     </image>
                     <docker>
